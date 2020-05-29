@@ -10,6 +10,9 @@ namespace Laba_6_1
     {
         static void Main(string[] args)
         {
+            Rhombus rhombus = new Rhombus(12, 13,false,60);
+            Console.WriteLine(rhombus.GetSquare());
+            Console.ReadLine();
         }
     }
 }

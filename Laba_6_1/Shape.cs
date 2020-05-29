@@ -13,13 +13,20 @@ namespace Laba_6_1
 */
     public class Shape
     {
-        protected double a, b, c, d;
+        protected double a, b;
+        protected int alpha;
+        protected bool bisheight;
+
         public Shape(double a)
         {
             this.a = a;
         }
-        public Shape(double a, double b)
+        public Shape(double a, double b,bool bisheight=false,int alpha = 0)
         {
+            this.a = a;
+            this.b = b;
+            this.alpha = alpha;
+            this.bisheight = bisheight;
 
         }
         public virtual double GetSquare()
@@ -40,5 +47,34 @@ namespace Laba_6_1
         }
 
     }
+    public class Rhombus : Shape
+    {
+        
+
+        public Rhombus(double a,double b, bool bisheight= false, int alpha=0):base(a,b, bisheight,alpha)
+        {
+           
+        }
+        public override double GetSquare()
+        {
+            if(alpha == 0 && bisheight)
+            {
+                return a * b;
+            }
+            else if(bisheight== false && alpha ==0)
+            {
+                return 0.5 * a * b;
+            }
+            else if(alpha !=0)
+            {
+                double rads = alpha * Math.PI / 180;
+                Console.WriteLine("Hi");
+                return a * a * Math.Sin(rads);
+            }
+            return 0;
+        }
+
+    }
+
 
 }
