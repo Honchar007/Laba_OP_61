@@ -14,7 +14,7 @@ namespace Laba_6_1
     public class Shape
     {
         protected double a, b;
-        protected int alpha;
+        protected int alpha,fi;
         protected bool bisheight;
 
         public Shape(double a)
@@ -29,11 +29,46 @@ namespace Laba_6_1
             this.bisheight = bisheight;
 
         }
+        public Shape(double a, double b, bool bisheight = false, int alpha = 0,int fi =0)
+        {
+            this.a = a;
+            this.b = b;
+            this.alpha = alpha;
+            this.bisheight = bisheight;
+            this.fi = fi;
+
+        }
         public virtual double GetSquare()
         {
             return 0;
         }
 
+    }
+    public class Paralelogram : Shape
+    {
+        public Paralelogram(double a, double b, bool bisheight = false, int alpha = 0,int fi=0) : base(a, b, bisheight, alpha,fi)
+        {
+
+        }
+        public override double GetSquare()
+        {
+            if (alpha == 0 && bisheight)
+            {
+                return a * b;
+            }
+            else if (bisheight == false && alpha == 0 && fi!=0)
+            {
+                double rads = fi * Math.PI / 180;
+                return 0.5 * a * b*Math.Sin(fi);
+            }
+            else if (alpha != 0)
+            {
+                double rads = alpha * Math.PI / 180;
+
+                return a * b * Math.Sin(rads);
+            }
+            return 0;
+        }
     }
     public class Square : Shape
     {
@@ -68,7 +103,7 @@ namespace Laba_6_1
             else if(alpha !=0)
             {
                 double rads = alpha * Math.PI / 180;
-                Console.WriteLine("Hi");
+               
                 return a * a * Math.Sin(rads);
             }
             return 0;

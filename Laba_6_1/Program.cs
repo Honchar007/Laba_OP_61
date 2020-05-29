@@ -11,7 +11,11 @@ namespace Laba_6_1
         static void Main(string[] args)
         {
             Rhombus rhombus = new Rhombus(12, 13,false,60);
+            Square square = new Square(12);
+            Paralelogram paralelogram = new Paralelogram(12, 13,false,60);
             Console.WriteLine(rhombus.GetSquare());
+            Console.WriteLine(paralelogram.GetSquare());
+            Console.WriteLine(square.GetSquare());
             Console.ReadLine();
         }
     }
